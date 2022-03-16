@@ -10,19 +10,40 @@ public class Conta {
     void visualizarSaldo(){
         System.out.println("Saldo atual na conta" +numero + ": R$ " +this.saldo);
     }
-    void depositar(double valor){
-        if(valor>0){
-            saldo = saldo + valor;
+    boolean depositar(double valor){
+        //if(valor>0){
+          //  saldo = saldo + valor;
+          //  return true;
 
-        }
+        //}
+        //else{
+            //return false;
+
+       // }
+       if(valor < 0) return false;
+       this.saldo += valor; 
+       return true;
+       
 
     }
-    void sacar(double valor){
-        if(valor<=saldo){
-            saldo = saldo - valor;
-        }    
+    boolean sacar(double valor){
+        //if(valor<=saldo){
+          //  saldo = saldo - valor;
+        //}  
+        if(valor>saldo) return false;
+        if(valor< 0) return false;
+        this.saldo -= valor;
+        return true;
+
     }
-    void transferirDinheiro(){}
+    boolean transferirDinheiro(double valor, Conta destino){
+        if(!this.sacar(valor)) return false;
+
+        if(!destino.depositar(valor)) return false;
+        return true;
+
+
+    }
 
 
 }

@@ -17,8 +17,19 @@ public class App {
         System.out.println("Saldo na minhaConta: ");
         outraConta.visualizarSaldo();
 
-        minhaConta.depositar(-500.00);
-        minhaConta.sacar(2100.00);
+        //if(!minhaConta.depositar(500.00)){
+            //System.out.println("Operacao falhou!");
+        //};
+        //if(!minhaConta.sacar(2100.00)){
+            //System.out.println("Operacao falhou!");
+
+        //};
+        //minhaConta.visualizarSaldo();
+        minhaConta.transferirDinheiro(-50, outraConta);
+
+        System.out.println("Saldo na minhaConta: ");
         minhaConta.visualizarSaldo();
+        System.out.println("Saldo na minhaConta: ");
+        outraConta.visualizarSaldo();
     }
 }
