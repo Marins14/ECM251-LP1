@@ -1,8 +1,8 @@
 # Inicio do projeto anual - Loja de jogos 
 
    ## Inicio em "17.03.22" 
-        - Promoções 
-        - Jogos 
+        ### Promoções 
+        ### Jogos 
         - Buscar 
         - Categorias
         - Noticias 
