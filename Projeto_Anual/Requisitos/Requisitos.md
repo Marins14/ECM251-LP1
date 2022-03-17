@@ -24,4 +24,12 @@
       Sistema de busca por palavras chaves 
    ## Categorias 
       Usuário poderá usar como filtro para uma possível busca e ajudá-lo a saber o que esperar dentro do jogo
- 
+   ## Noticias 
+      Tudo que for fornecido pelas empresas em relação aos jogos será anunciado 
+   ## Navegação 
+      Sistema de navegação fluida para que não haja travamentos 
+   ## Áreas do usuário 
+      Sistema de login; conta; personalizaçao com fotos,nomes, emails; 
+   ## Compra, Devolução e Reembolso 
+      Área dedicada a um sistema de compra e venda com link direto para bancos 
+   
