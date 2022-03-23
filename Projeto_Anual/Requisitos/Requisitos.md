@@ -176,7 +176,7 @@ Busca por categoria
 - Cupons de desconto
 ```
 
-## Tipos de console
+## Tipos de console (OFERECER A OPÇÃO APENAS SE DISPONÍVEL)
 Caso o site tiver tipos de jogos, por exemplo:
 - Nintendo switch
 - PC
