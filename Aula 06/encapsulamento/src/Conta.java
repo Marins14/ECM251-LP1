@@ -2,8 +2,13 @@ public class Conta {
     // atributos da nossa classe
     private int numero;
     private double saldo;
-    
 
+    public Conta(int numero){
+        this.numero =numero;
+        saldo = 0;
+
+    }
+    
     // Métodos da classe 
 
     public void visualizarSaldo(){
