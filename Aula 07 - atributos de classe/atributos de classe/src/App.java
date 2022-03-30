@@ -8,8 +8,9 @@ public class App {
         // System.out.println("Valor do Contador:" + Exemplo.getContador());
         System.out.println("" + ValidadorCPF.validar("11111111111"));  
         System.out.println("" + ValidadorCPF.validar("11111111112"));  
-        System.out.println("" + ValidadorCPF.validar("52998224725"));
+        System.out.println("" + ValidadorCPF.validar("529.982.247-25"));
         System.out.println("" + ValidadorCPF.validar("52998224735"));
         System.out.println("" + ValidadorCPF.validar("52998224726"));
+        System.out.println("" + ValidadorCPF.validar("42"));
     }
 }
