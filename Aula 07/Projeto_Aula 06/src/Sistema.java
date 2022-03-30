@@ -14,7 +14,7 @@ public class Sistema {
     }
 
     boolean pagarTitulo(Titulo titulo, Conta conta){
-        dobule valorPagar;
+        double valorPagar;
         LocalDate dataTitulo = titulo.getData();
         LocalDate hoje = LocalDate.now();
         if(dataTitulo.compareTo(hoje) > 0 ){
