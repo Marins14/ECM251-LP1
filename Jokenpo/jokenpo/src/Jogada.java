@@ -1,8 +1,8 @@
 public class Jogada {
-    private String venco;
+    private final EnumJogadas venco;
     
 
-    public Jogada(String venco) {
+    public Jogada(EnumJogadas venco) {
         this.venco = venco;
         
     }
@@ -12,7 +12,7 @@ public class Jogada {
         return false;
 
     }
-    public String getTipo(){
-        return "Jogada";
+    public EnumJogadas getTipo(){
+        return EnumJogadas.PAPEL;
     }
 }
