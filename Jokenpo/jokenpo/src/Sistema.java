@@ -2,30 +2,35 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Sistema {
     public static void rodar(){
-        // usuario escolhe a jogada 
-        Jogada jogada1 = new Pedra();
-        //sorteio da jogada para o PC 
+        Jogada jogada1 = sortearJogada();
         Jogada jogada2 = sortearJogada();
-        //avaliação das jogadas
-        String resultado = avaliaJogadas(jogada1, jogada2);
-        // exibição do resultado
-        System.out.println("Resultado:"+ resultado);
+        //Jogada jogada3 = new Tesoura();
+
+        EnumJogadas resultado = avaliaJogadas(jogada1,jogada2);
+        //String resultado2 = avaliaJogadas(jogada3,jogada1);
+        
+        System.out.println();
+        System.out.println("Entre " + jogada1.getTipo() + " e " + jogada2.getTipo() + " o resultado e: " +resultado);
+        System.out.println();
+        // System.out.println("Vencedor:" +resultado2);
+        // System.out.println();
     }
 
-    private static Jogada sortearJogada() {
-        Jogada jogadas[] = new Jogada[3];
+    private static Jogada sortearJogada(){
+        Jogada jogadas[] = new Jogada[5];
         jogadas[0] = new Pedra();
         jogadas[1] = new Papel();
         jogadas[2] = new Tesoura();
+        jogadas[3] = new Spoke();
+        jogadas[4] = new Lagarto();
         return jogadas[ThreadLocalRandom.current().nextInt(jogadas.length)];
     }
 
-    private static String avaliaJogadas(Jogada jogada1, Jogada jogada2) {
-        if (jogada1.verificarVenceu(jogada2))
-            return "Jogada1";
+    private static EnumJogadas avaliaJogadas(Jogada jogada1, Jogada jogada2){
+        if(jogada1.verificarVenceu(jogada2))
+            return jogada1.getTipo();
         if(jogada2.verificarVenceu(jogada1))
-            return "Jogada2";
-        return "Empate";
+            return jogada2.getTipo();
+        return EnumJogadas.EMPATE;
     }
-    
 }

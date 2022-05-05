@@ -1,13 +1,12 @@
 public class Spoke extends Jogada {
 
     public Spoke() {
-        super(EnumJogadas.);
-        
+        super(EnumJogadas.TESOURA,EnumJogadas.PEDRA);
     }
 
     @Override
     public EnumJogadas getTipo() {
-        return EnumJogadas.getTipo();
+        return EnumJogadas.SPOKE;
     }
     
 }
