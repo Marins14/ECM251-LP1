@@ -48,3 +48,11 @@ git clone "link do repositório"
 git commit 
 git push "para logar,usa o token"
 ```
+### Para pegar att o repositorio no seu pc
+```bash
+git pull 
+```
+### Para levar p git as att
+```bash
+git push
+```
