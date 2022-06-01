@@ -19,6 +19,9 @@ public class TestDriveArrayList {
         for(int i=0;i<canetas.size();i++){
             System.out.println("Cor da caneta:"+canetas.get(i).cor + "\t Com ponta:" + canetas.get(i).ponta);
         }
-
+        // Método 2 
+        for (Caneta caneta : canetas) {
+            System.out.println("cor da caneta: "+caneta.cor);
+        }
     }
 }
