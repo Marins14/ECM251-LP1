@@ -1,4 +1,4 @@
-# ecm251-2022
+# ecm251-2022 - Matheus Marins Bernardello 
 Repositório para disciplina ECM251-2022
 # ECM251 - Utilizando Git
 
