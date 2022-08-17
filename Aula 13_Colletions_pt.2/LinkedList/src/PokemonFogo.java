@@ -15,5 +15,4 @@ public class PokemonFogo extends Pokemon {
         return true;
         
     }
-    
 }
