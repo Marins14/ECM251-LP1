@@ -34,8 +34,8 @@ with info:
         print(resultado) 
     numero1 = st.number_input(
         label= "Valor 1",
-        min_value=0,
-        max_value=100,
+        min_value=0.0,
+        max_value=100.0,
     )
     numero2 = st.number_input(
         label= "Valor 2",
