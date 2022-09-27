@@ -1,5 +1,16 @@
 import streamlit as st
 from random import randint
+from models.product import Product
+catalogo = [Product("The Witcher 3: Wild Hunt","Geraldao ataca novamente!",79.99,"./assets/geralt.png"),
+Product("Read Dead Redemption 2","Melhor do que nunca!",99.90,"./assets/ReadDead.jpeg"),
+Product("Elden Ring","Anel do Elden!",250.00,"./assets/elden_ring.png"),
+Product("Grand Theft Auto 5","Roubei seu PC",99.99,"./assets/gta.png"),
+Product("Rainbow Six Siege","Aquele da série do Tom Clancy's",39.99,"./assets/R6.png"),
+Product("Stray","Sim, um gato protagonista",59.99,"./assets/Stray.png"),
+Product("God Of War: Ragnarok","ELE VOLTOU!",375.00,"./assets/God_Rag.png"),
+Product("OverWatch 2","Não, não é de graça!",250.00,"./assets/overwatch.png"),
+Product("Outlast Trials","Todos querem esta experiência!",300.00,"./assets/Out_trials.jpg")]
+
 st.set_page_config(page_title="GeraltSteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
 
 def check_password():
@@ -54,7 +65,7 @@ if check_password():
     home,carrinho = st.tabs(["Home","Carrinho"])
     
     with home:
-        st.subheader("Destaques 😎")
+        st.subheader("Temos alguns destaques, confira! 😎")
         col1,col2,col3 = st.columns(3,gap = "small")
         with col1:
             st.image("./assets/geralt.png",caption = "R$ 79,99")
@@ -70,7 +81,6 @@ if check_password():
             if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
                 st.write("Quase lá...")
                 
-        st.subheader("Ofertas 🤑")
         col4,col5,col6 = st.columns(3,gap = "small")
         with col4:
             st.image("./assets/gta.png", caption= " R$ 99,99")
@@ -87,7 +97,6 @@ if check_password():
             if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
                 st.write("Quase lá...")
                 
-        st.subheader("Pre-Order 🛫")
         col7,col8,col9 = st.columns(3,gap = "small")
         with col7:
             st.image("./assets/God_Rag.png",caption= "R$ 375,00")
