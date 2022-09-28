@@ -8,9 +8,6 @@ class Product():
         self._descricao = descricao
         self._price = price 
         self._url = url
-    # Faz com que o item print de forma especifica
-    def __str__(self) -> str:
-        return f'Product(name):{self._name},descricao:{self._descricao} price:{self._price}, url:{self._url}'
     # Getters da classe
     def get_Nome(self):
         return self._name
@@ -20,6 +17,6 @@ class Product():
         return self._price
     def get_Imagem(self):
         return self._url
-     
-    
-    
+     # Faz com que o item print de forma especifica
+    def __str__(self) -> str:
+        return self._name + " - R$ "+ str(self._price)

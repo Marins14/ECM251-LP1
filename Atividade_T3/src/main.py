@@ -1,7 +1,9 @@
+# Matheus Marins Bernardello RA: 20.00286-6
 import streamlit as st
 from random import randint
 from models.product import Product
 from models.carrinho import Carrinho
+
 
 catalogo = [
 Product("The Witcher 3: Wild Hunt","Geraldao ataca novamente!",79.99,"./assets/geralt.png"),
@@ -65,6 +67,7 @@ def check_password():
         return True
 
 if check_password():
+    car = Carrinho()
     home,carrinho = st.tabs(["Home","Carrinho"])
     
     with home:
@@ -75,21 +78,27 @@ if check_password():
         c7,c8,c9 = st.columns(3,gap="small")
         colunas = [c1,c2,c3,c4,c5,c6,c7,c8,c9]
         var = 0
+        prod_key_1 = "Produto_"
         for i in colunas:
             with i:
+                prod_key_2 = str(var)
+                prod_key = prod_key_1+prod_key_2
                 st.image(catalogo[var].get_Imagem(),catalogo[var].get_Valor())
-                var += 1
-                if st.button("Adicionar ao carrinho",key=randint(0,10000)):
+                if st.button("Adicionar ao carrinho",key=prod_key):
                     st.write("Produto adicionado ao carrinho!")
+                    car.adicionar(catalogo[var])
+                var += 1  
                     
                 
     with carrinho:
-        col1,col2 = st.columns([3,1],gap = "small")
+        col1,col2 = st.columns([2,1],gap = "small")
         with col1:
-            st.write("Itens")
-        
+            st.write("Itens:")
+            st.write(str(car.exibir_Itens()))
         with col2:
             st.write("Resumo da Compra:")
+            st.write(str(car.get_Quantidade_Itens()))
+            st.write(str(car.get_Valor_Total()))
 
 hide_menu_style = """
         <style>
