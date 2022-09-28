@@ -97,8 +97,8 @@ if check_password():
             st.write("Remover: ")
             contador = 0
             while contador < st.session_state["carrinho"].get_Quantidade_Itens():
-                aux = st.session_state["carrinho"].exibir_Itens()
-                if st.button("Remover",key = ("Remover_"+ aux.get_Keyword()+ str(contador))):
+                aux = st.session_state["carrinho"].exibir_Itens(contador)
+                if st.button("Remover",key = ("Remover_"+aux.get_Keyword()+str(contador))):
                      st.session_state["carrinho"].remover(aux)
                 contador += 1  
         with col2:
@@ -108,7 +108,7 @@ if check_password():
                 st.write(str(st.session_state["carrinho"].exibir_Itens(i)))
                 i+=1
         with col3:
-            st.write("Resumo da Compra:")
+            st.write("Confere quant. e valor:")
             st.write("Quantidade Total: "+str(st.session_state["carrinho"].get_Quantidade_Itens()))
             st.write("Valor total: R$ "+str(st.session_state["carrinho"].get_Valor_Total()))
             if st.button("Pagamento",key = ("pagamento")): # Botão ainda sem funcionalidade

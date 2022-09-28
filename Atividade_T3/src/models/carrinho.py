@@ -1,16 +1,18 @@
+
 class Carrinho():
     # Método construtor
     def __init__(self):
         self._itens = []
+        
     # Demais métodos da classe
+    def exibir_Itens(self,product):
+        return self._itens[product]
+    
     def get_Valor_Total(self):
         total = 0.0
         for item in self._itens:
             total += item.get_Valor()
         return total
-        
-    def exibir_Itens(self,item):
-        return self._itens[item]
     
     def get_Quantidade_Itens(self):
         return len(self._itens)
@@ -22,7 +24,7 @@ class Carrinho():
         if item in self._itens:
             self._itens.remove(item)
     
-    def get_Quantidade_Itens_Repetidos(self,objetivo):
+    def get_Itens_Repetidos(self,objetivo):
         contador = 0
         for item in self._itens:
             if objetivo == item:
