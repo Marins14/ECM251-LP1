@@ -1,7 +1,10 @@
 import streamlit as st
 from random import randint
 from models.product import Product
-catalogo = [Product("The Witcher 3: Wild Hunt","Geraldao ataca novamente!",79.99,"./assets/geralt.png"),
+from models.carrinho import Carrinho
+
+catalogo = [
+Product("The Witcher 3: Wild Hunt","Geraldao ataca novamente!",79.99,"./assets/geralt.png"),
 Product("Read Dead Redemption 2","Melhor do que nunca!",99.90,"./assets/ReadDead.jpeg"),
 Product("Elden Ring","Anel do Elden!",250.00,"./assets/elden_ring.png"),
 Product("Grand Theft Auto 5","Roubei seu PC",99.99,"./assets/gta.png"),
@@ -11,7 +14,7 @@ Product("God Of War: Ragnarok","ELE VOLTOU!",375.00,"./assets/God_Rag.png"),
 Product("OverWatch 2","Não, não é de graça!",250.00,"./assets/overwatch.png"),
 Product("Outlast Trials","Todos querem esta experiência!",300.00,"./assets/Out_trials.jpg")]
 
-st.set_page_config(page_title="GeraltSteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
+st.set_page_config(page_title="Geraldão_Steam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
 
 def check_password():
     """Returns `True` if the user had a correct password."""
@@ -52,7 +55,7 @@ def check_password():
                 password_entered()
         with col2:
             if st.button(label="Esqueci a senha"):
-                st.write("Redirecionando...")
+                st.write("Calma aew, to no processo aqui...")
             # Botão sem função por enquanto, aguarde novas atualizações...    
         st.error("ERRROUUU 🤣")
         return False
@@ -66,52 +69,19 @@ if check_password():
     
     with home:
         st.subheader("Temos alguns destaques, confira! 😎")
-        col1,col2,col3 = st.columns(3,gap = "small")
-        with col1:
-            st.image("./assets/geralt.png",caption = "R$ 79,99")
-            if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
-                st.write("Quase lá...")
-        
-        with col2:
-            st.image("./assets/ReadDead.jpeg",caption= "R$ 99,90")
-            if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
-                st.write("Quase lá...")
-        with col3:
-            st.image("./assets/elden_ring.png", caption = "R$ 250,00")
-            if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
-                st.write("Quase lá...")
-                
-        col4,col5,col6 = st.columns(3,gap = "small")
-        with col4:
-            st.image("./assets/gta.png", caption= " R$ 99,99")
-            if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
-                st.write("Quase lá...")
-                
-        with col5:
-            st.image("./assets/R6.png", caption= "R$ 39,90")
-            if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
-                st.write("Quase lá...")
-                
-        with col6:
-            st.image("./assets/Stray.png", caption = "R$ 59,90")
-            if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
-                st.write("Quase lá...")
-                
-        col7,col8,col9 = st.columns(3,gap = "small")
-        with col7:
-            st.image("./assets/God_Rag.png",caption= "R$ 375,00")
-            if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
-                st.write("Quase lá...")
-                
-        with col8:
-            st.image("./assets/overwatch.png", caption= "R$ 250,00")
-            if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
-                st.write("Quase lá...")
-                
-        with col9:
-            st.image("./assets/Out_trials.jpg", caption= "R$ 300,00")
-            if st.button(label="Quero você no meu carrinho!",key=randint(0,10000)):
-                st.write("Quase lá...")
+        st.subheader("Destaques")
+        c1,c2,c3 = st.columns(3,gap="small")
+        c4,c5,c6 = st.columns(3,gap="small")
+        c7,c8,c9 = st.columns(3,gap="small")
+        colunas = [c1,c2,c3,c4,c5,c6,c7,c8,c9]
+        var = 0
+        for i in colunas:
+            with i:
+                st.image(catalogo[var].get_Imagem(),catalogo[var].get_Valor())
+                var += 1
+                if st.button("Adicionar ao carrinho",key=randint(0,10000)):
+                    st.write("Produto adicionado ao carrinho!")
+                    
                 
     with carrinho:
         col1,col2 = st.columns([3,1],gap = "small")
