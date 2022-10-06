@@ -70,7 +70,7 @@ try:
             return True
 
     if check_password():
-        home,carrinho = st.tabs(["Home","Carrinho"])
+        home,carrinho,redes_sociais = st.tabs(["Home","Carrinho","Redes Sociais"])
         
         with home:
             st.subheader("Temos algumas novidades, confira! 😎")
@@ -113,7 +113,10 @@ try:
                 st.write("Valor total: R$ "+str(st.session_state["carrinho"].get_Valor_Total()))
                 if st.button("Pagamento",key = ("pagamento")): # Botão ainda sem funcionalidade
                     st.write("Botão fora do ar")
-
+        with redes_sociais:
+            st.title("Quer ficar sabendo das novidades ? Fique de olhos em nossas redes sociais!!")
+            st.markdown("Entre em nosso discord!👌")
+            st.write("Horror Island → https://discord.gg/amnyMEBc")
     hide_menu_style = """
             <style>
             #MainMenu {visibility: hidden;}
