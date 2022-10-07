@@ -115,9 +115,9 @@ if check_password():
     with redes_sociais:
         st.title("Fique de olhos em nossas redes sociais!")
         
-        st.markdown(" *Entre em nosso discord!* 👌")
-        st.write(" *Horror Island →*  https://discord.gg/amnyMEBc")
-        st.markdown(" *Instagram do proprietário → @marins_1401* ")
+        st.markdown(" **Entre em nosso discord!** 👌")
+        st.write(" **Horror Island →**  https://discord.gg/amnyMEBc")
+        st.markdown(" **Instagram do proprietário → @marins_1401** ")
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
