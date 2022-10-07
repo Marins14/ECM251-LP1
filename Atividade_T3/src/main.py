@@ -113,14 +113,26 @@ if check_password():
             if st.button("Pagamento",key = ("pagamento")): # Botão ainda sem funcionalidade
                 st.write("Botão fora do ar")
     with redes_sociais:
+<<<<<<< HEAD
         st.title("Fique de olhos em nossas redes sociais!")
         
         st.markdown(" **Entre em nosso discord!** 👌")
         st.write(" **Horror Island →**  https://discord.gg/amnyMEBc")
         st.markdown(" **Instagram do proprietário → @marins_1401** ")
+=======
+        st.title("Quer ficar sabendo das novidades ? Fique de olhos em nossas redes sociais!!")
+        st.markdown("Entre em nosso discord!👌")
+        st.write("Horror Island → https://discord.gg/amnyMEBc")
+        st.markdown("Nosso Instagram!")
+        st.write("@marins_1401")
+>>>>>>> bddded55a7400a559318b4bcd82a0e0a470f68be
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
         </style>
         """
+<<<<<<< HEAD
 st.markdown(hide_menu_style, unsafe_allow_html=True)
+=======
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+>>>>>>> bddded55a7400a559318b4bcd82a0e0a470f68be
