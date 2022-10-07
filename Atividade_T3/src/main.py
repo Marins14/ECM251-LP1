@@ -87,8 +87,8 @@ if check_password():
                     st.write("Produto adicionado ao carrinho!")
                     st.session_state["carrinho"].adicionar(st.session_state["catalogo"][var])
                 var += 1  
-        st.markdown('**_Estamos preparando algo maior ainda,tenha paciência meu pupilo!_**.😴')
-        st.markdown('**Geraldão_Store é uma marca registrada. Todos os direitos reservados**.')            
+        st.markdown('*Estamos preparando algo maior ainda,tenha paciência meu pupilo!*.😴')
+        st.markdown('*Geraldão_Store é uma marca registrada. Todos os direitos reservados*.')            
                 
     with carrinho:
         col1,col2,col3 = st.columns([1.5,5,2.5],gap = "small")
@@ -113,26 +113,14 @@ if check_password():
             if st.button("Pagamento",key = ("pagamento")): # Botão ainda sem funcionalidade
                 st.write("Botão fora do ar")
     with redes_sociais:
-<<<<<<< HEAD
         st.title("Fique de olhos em nossas redes sociais!")
         
-        st.markdown(" **Entre em nosso discord!** 👌")
-        st.write(" **Horror Island →**  https://discord.gg/amnyMEBc")
-        st.markdown(" **Instagram do proprietário → @marins_1401** ")
-=======
-        st.title("Quer ficar sabendo das novidades ? Fique de olhos em nossas redes sociais!!")
-        st.markdown("Entre em nosso discord!👌")
-        st.write("Horror Island → https://discord.gg/amnyMEBc")
-        st.markdown("Nosso Instagram!")
-        st.write("@marins_1401")
->>>>>>> bddded55a7400a559318b4bcd82a0e0a470f68be
+        st.markdown(" *Entre em nosso discord!* 👌")
+        st.write(" *Horror Island →*  https://discord.gg/amnyMEBc")
+        st.markdown(" *Instagram do proprietário → @marins_1401* ")
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
         </style>
         """
-<<<<<<< HEAD
 st.markdown(hide_menu_style, unsafe_allow_html=True)
-=======
-st.markdown(hide_menu_style, unsafe_allow_html=True)
->>>>>>> bddded55a7400a559318b4bcd82a0e0a470f68be
