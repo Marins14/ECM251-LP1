@@ -1,6 +1,6 @@
 from pickle import FALSE, TRUE
 import sqlite3
-from src.models.item import Item
+from src.models.pedido import Pedido
 class PedidoDAO:
     
     _instance = None
@@ -24,7 +24,7 @@ class PedidoDAO:
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(Item(id=resultado[0], nome=resultado[1], preco=resultado[2]))
+            resultados.append(Pedido(id=resultado[0], id_item=resultado[1], id_cliente=resultado[2], quantidade = resultado[3], numero_pedido=resultado[4], data_hora= resultado[5]))
         self.cursor.close()
         return resultados
     
