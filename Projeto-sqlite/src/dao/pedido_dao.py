@@ -1,7 +1,7 @@
 from pickle import FALSE, TRUE
 import sqlite3
 from src.models.item import Item
-class ItemDAO:
+class PedidoDAO:
     
     _instance = None
 
@@ -11,7 +11,7 @@ class ItemDAO:
     @classmethod
     def get_instance(cls):
         if cls._instance == None:
-            cls._instance = ItemDAO()
+            cls._instance = PedidoDAO()
         return cls._instance
 
     def _connect(self):
@@ -20,7 +20,7 @@ class ItemDAO:
     def get_all(self):
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
-            SELECT * FROM Itens;
+            SELECT * FROM Pedidos;
         """)
         resultados = []
         for resultado in self.cursor.fetchall():

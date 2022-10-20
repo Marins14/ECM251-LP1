@@ -17,3 +17,7 @@ for item in items:
 print("**************************************")
 item = controller.pegar_item("CAF6")
 print(item)
+
+print("**************************************")
+itens = controller.buscar_todos_itens_nome("Aula")
+print(itens)
