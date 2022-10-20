@@ -11,3 +11,4 @@ class PedidoController:
             item = item_controller.pegar_item(item_id)
             total += item.preco * quantidade
         return total
+        
