@@ -1,3 +1,4 @@
+from pickle import FALSE, TRUE
 import sqlite3
 from src.models.item import Item
 class ItemDAO:
@@ -14,7 +15,7 @@ class ItemDAO:
         return cls._instance
 
     def _connect(self):
-        self.conn = sqlite3.connect('./databases/sqlite.db')
+        self.conn = sqlite3.connect('./database/sqlite.db')
 
     def get_all(self):
         self.cursor = self.conn.cursor()
@@ -47,3 +48,18 @@ class ItemDAO:
             item = Item(id=resultado[0], nome=resultado[1], preco=resultado[2])
         self.cursor.close()
         return item
+
+    def atualizar_item(self,item):
+        try:
+            self.cursor = self.conn.cursor()
+            self.cursor.execute(f"""
+                UPTADE Itens SET
+                nome = '{item.nome}'
+                preco = {item.preco}
+                WHERE id = '{item.id}'
+            """)
+            self.conn.commit()
+            self.cursor.close()
+        except:
+            return False
+        return True
