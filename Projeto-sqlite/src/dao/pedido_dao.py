@@ -78,11 +78,11 @@ class PedidoDAO:
         return True
     
     #TODO
-    def deletar_item(self, id):
+    def deletar_pedido(self, id):
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                DELETE FROM Itens 
+                DELETE FROM Pedidos 
                 WHERE id = '{id}'
             """)
             self.conn.commit()
