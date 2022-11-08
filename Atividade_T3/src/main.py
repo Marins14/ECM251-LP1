@@ -1,8 +1,8 @@
 # Matheus Marins Bernardello RA: 20.00286-6
 import streamlit as st
-from models.product import Product
-from models.carrinho import Carrinho
-
+from models.product_model import Produto
+from view.home_page import Home
+from view.login import 
 if "carrinho" not in st.session_state:
     st.session_state["carrinho"] = Carrinho()
 if "catalogo" not in st.session_state:
@@ -124,3 +124,8 @@ hide_menu_style = """
         </style>
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+st.set_page_config(page_title="Snoteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
+
+if Login():
+    Home(produtos_db)
