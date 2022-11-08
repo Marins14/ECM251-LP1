@@ -1,5 +1,5 @@
 import streamlit as st
-
+from controllers.cadastro_controller import *
 from controllers.user_controller import UserController
 
 # Só foi passado para uma pasta diferente, porem contina a mesma lógica de login do T3
