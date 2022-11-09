@@ -26,4 +26,4 @@ class Cart_Ctrl:
             st.write("Quant. de Produtos: "+str(st.session_state["carrinho"].get_Quantidade_Produtos()))
             st.write("Valor total: R$ "+str(st.session_state["carrinho"].get_Valor_Total()))
             if st.button("Pagamento",key = ("pagamento")):
-                st.write("Redirecionando...")
+                st.write("Calma meu jovem, já estamos trabalhando para você!")
