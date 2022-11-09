@@ -1,7 +1,7 @@
 # Matheus Marins Bernardello RA: 20.00286-6
 from pickle import FALSE, TRUE
 import sqlite3
-from src.models.item import Item
+from models.product import Produto
 class ItemDAO:
     
     _instance = None
@@ -25,7 +25,7 @@ class ItemDAO:
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(Item(id=resultado[0], nome=resultado[1], preco=resultado[2]))
+            resultados.append(Produto(nome=resultado[0],descricao=resultado[1],keyword=resultado[2], valor=resultado[3],imagem= resultado[4]))
         self.cursor.close()
         return resultados
     
@@ -46,7 +46,7 @@ class ItemDAO:
         item = None
         resultado = self.cursor.fetchone()
         if resultado != None:
-            item = Item(id=resultado[0], nome=resultado[1], preco=resultado[2])
+            item = Produto(nome=resultado[0],descricao=resultado[1],keyword=resultado[2], valor=resultado[3],imagem= resultado[4])
         self.cursor.close()
         return item
 
@@ -85,6 +85,6 @@ class ItemDAO:
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(Item(id=resultado[0], nome=resultado[1], preco=resultado[2]))
+            resultados.append(Produto(nome=resultado[0],descricao=resultado[1],keyword=resultado[2], valor=resultado[3],imagem= resultado[4]))
         self.cursor.close()
         return resultados

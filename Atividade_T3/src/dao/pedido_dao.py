@@ -1,6 +1,6 @@
 # Matheus Marins Bernardello RA: 20.00286-6
 import sqlite3
-from src.models.pedido import Pedido
+from models.pedido import Pedido
 class PedidoDAO:
     
     _instance = None
