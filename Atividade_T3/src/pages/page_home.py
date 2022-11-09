@@ -1,10 +1,11 @@
+# Matheus Marins Bernardello RA: 20.00286-6
 import streamlit as st
 from controllers.product_controller import Product_Controller
 from controllers.cart_controller import Carrinho
 from controllers.loja_controller import Store_Ctrl
 from controllers.cart import Cart_Ctrl
 from controllers.profile_controller import Profile_Ctrl
-#from controllers.admin_controller import Admin_Ctrl
+from controllers.adm_controller import Admin_Ctrl
 
 class Home:
     def __init__(self,produtos_db):
@@ -23,8 +24,7 @@ class Home:
         with profile:
             Profile_Ctrl()
         with administration:
-            #Admin_Ctrl() Falta finalizar esta função 
-            pass
+            Admin_Ctrl() 
         hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}

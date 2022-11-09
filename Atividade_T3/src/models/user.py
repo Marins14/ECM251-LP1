@@ -1,3 +1,4 @@
+# Matheus Marins Bernardello RA: 20.00286-6
 class User():
     def __init__(self, username = "admin", email = None, password = "admin", cpf = None, birthdate = None, name = "Admin"):
         self._username = username
