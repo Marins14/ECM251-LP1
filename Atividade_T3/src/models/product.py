@@ -29,3 +29,4 @@ class Produto():
         if(isinstance(__o,Produto)):
             return self._nome == __o.get_Nome()
         return False
+    
