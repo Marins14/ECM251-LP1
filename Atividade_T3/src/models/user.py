@@ -12,7 +12,7 @@ class User():
         return self._username
     def get_Email(self):
         return self._email
-    def get_Senha(self):
+    def get_password(self):
         return self._password
     def get_cpf(self):
         return self._cpf
