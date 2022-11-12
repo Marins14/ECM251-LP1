@@ -20,7 +20,7 @@ class PedidoDAO:
     def get_all(self):
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
-            SELECT * FROM Pedidos;
+            SELECT * FROM Pedido;
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
@@ -31,7 +31,7 @@ class PedidoDAO:
     def inserir_pedido(self, pedido):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
-            INSERT INTO Pedidos (
+            INSERT INTO Pedido (
                 id_item, 
                 id_cliente, 
                 quantidade, 
@@ -52,7 +52,7 @@ class PedidoDAO:
     def pegar_pedido(self, numero_pedido):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
-            SELECT * FROM Pedidos
+            SELECT * FROM Pedido
             WHERE numero_pedido = '{numero_pedido}';
         """)
         resultados = []
@@ -66,7 +66,7 @@ class PedidoDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPDATE Pedidos SET
+                UPDATE Pedido SET
                 id_item = '{pedido.id_item}',
                 quantidade = {pedido.quantidade},
                 data_hora = '{pedido.data_hora}'
@@ -83,7 +83,7 @@ class PedidoDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                DELETE FROM Pedidos 
+                DELETE FROM Pedido 
                 WHERE id = '{id}'
             """)
             self.conn.commit()
