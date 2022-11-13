@@ -24,6 +24,8 @@ class Carrinho():
             if objetivo == produto:
                 contador += 1
         return contador
-    def __str__(self) -> str:
+    def printa_geral(self):
         for item in self._carrinho:
             print(item)
+    def __str__(self) -> str:
+        return f'Teoricamente é isso:{self.printa_geral()}'
