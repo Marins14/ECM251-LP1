@@ -33,7 +33,7 @@ class JogoDAO:
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
             INSERT INTO Jogos (id, nome,descricao, preco,imagem)
-            VALUES(?,?,?);
+            VALUES(?,?,?,?,?);
         """, (item.get_Keyword(), item.get_Nome(),item.get_Descricao(), item.get_Valor(),item.get_Imagem()))
         self.conn.commit()
         self.cursor.close()

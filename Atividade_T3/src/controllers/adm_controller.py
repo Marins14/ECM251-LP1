@@ -11,7 +11,7 @@ class Admin_Ctrl:
                                              key="new_prod_img",
                                              accept_multiple_files=False)
         if st.button("Cadastrar Produto",key="new_prod_button"):
-            st.session_state["produtos"].criar_novo_produto(new_product_name,
+            st.session_state["jogos"].criar_novo_produto(new_product_name,
                                                             new_product_description,
                                                             new_product_keyword,
                                                             float(new_product_value),

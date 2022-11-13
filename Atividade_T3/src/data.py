@@ -14,10 +14,9 @@ produtos_loja = [
                     Produto("OverWatch 2","Não, não é de graça!","vou pagar",250.00,"./assets/overwatch.png"),
                     Produto("Outlast Trials","Todos querem esta experiência!","terror",300.00,"./assets/Out_trials.jpg")]
 
-jogos_data = data.get_all()
+for jogo in produtos_loja:
+    data.inserir_item(jogo)
 
-for jogo in jogos_data:
-    code = open(f'./img/{jogo.get_Nome().jpeg}','wb')
-    code.write(jogo.get_Imagem())
-    code.close()
+#jogos_data = data.get_all()
+
     

@@ -1,6 +1,6 @@
 # Matheus MArins Bernardello RA: 20.00286-6
 import streamlit as st 
-import base64
+#import base64
 
 # Irá resolver os probelmas do streamlit quebrar o código quando solicitado cadastrar novo produto 
 

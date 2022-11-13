@@ -17,8 +17,8 @@ class Store_Ctrl:
         total_jogos = st.session_state["jogos"].get_Quantidade_Jogos()
         for st.session_state["colunas_aux"] in range(total_jogos):
             with colunas[st.session_state["colunas_aux"]]:
-                st.image(st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]).get_Imagem(), st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]).get_Descricao())
-                st.write("R$ "+ str(st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]).get_Valor()))
-                if st.button("Adicionar ao carrinho", key = st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]).get_Keyword()+str(st.session_state["colunas_aux"])):
-                    st.session_state["carrinho"].adicionar(st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]))
+                st.image(st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]).get_Imagem(), st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]).get_Descricao())
+                st.write("R$ "+ str(st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]).get_Valor()))
+                if st.button("Adicionar ao carrinho", key = st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]).get_Keyword()+str(st.session_state["colunas_aux"])):
+                    st.session_state["carrinho"].adicionar(st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]))
                     st.write("Produto adicionado ao carrinho!😎")

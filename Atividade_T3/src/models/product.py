@@ -1,10 +1,20 @@
 # Matheus Marins Bernardello RA: 20.00286-6
 from cgi import print_exception
 from unicodedata import name
+import base64
+
+# def conv_img(end_img):
+#     with open(end_img, "rb") as image2string:
+#         converted_string = base64.b64encode(image2string.read())
+        
+#     image2string.close()
+    
+#     return base64.b64decode(converted_string)
+    
 
 class Produto():
     # Método construtor
-    def __init__(self,nome,descricao,keyword,valor,imagem = None):
+    def __init__(self,nome,descricao,keyword,valor,imagem):
         self._nome = nome
         self._descricao = descricao
         self._keyword = keyword

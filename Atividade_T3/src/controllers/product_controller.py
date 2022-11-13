@@ -12,10 +12,10 @@ class Product_Controller():
         if jogo not in self._lista_de_produtos:
             self._lista_de_produtos.append(jogo)
     def criar_novo_produto(self,nome,descricao,keyword,valor,imagem):
-        string_binaria = base64.b64decode(imagem.getvalue())
+        string_binaria = base64.b64encode(imagem.getvalue())
         construtor = base64.b64decode((string_binaria))
         aux = Produto(nome,descricao,keyword,valor,construtor) # O proprio streamlit faz a conversão binaria da imagem depois. 
-        self._lista_de_produtos.append(aux) 
+        self.jogos_data.inserir_item(aux)
     def exibir_Jogos(self,jogo):
         return self._lista_de_produtos[jogo]
     def get_Jogo(self,index):
