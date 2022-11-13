@@ -12,8 +12,6 @@ class Store_Ctrl:
         if "colunas_aux" not in st.session_state:
             st.session_state["colunas_aux"] = 0
 
-# Variavel criada para evitar possiveis bugs no streamlit 
-        total_jogos = 0
         total_jogos = st.session_state["jogos"].get_Quantidade_Jogos()
         for st.session_state["colunas_aux"] in range(total_jogos):
             with colunas[st.session_state["colunas_aux"]]:

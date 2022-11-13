@@ -1,5 +1,6 @@
 # Matheus Marins Bernardello RA: 20.00286-6
 import streamlit as st
+from controllers.pedido_controller import Pedido_Control
 from controllers.product_controller import Product_Controller
 from controllers.cart_controller import Carrinho
 from controllers.loja_controller import Store_Ctrl
@@ -12,6 +13,7 @@ class Home:
         if "carrinho" not in st.session_state:
             st.session_state["carrinho"] = Carrinho()
         st.session_state["jogos"] = Product_Controller()
+        st.session_state["pedido"] = Pedido_Control()
         
         store,cart,profile,administration = st.tabs(["Loja","Carrinho","Perfil","Novos Produtos"])    
         with store:

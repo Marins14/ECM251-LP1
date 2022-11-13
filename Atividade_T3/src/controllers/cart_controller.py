@@ -1,4 +1,5 @@
 # Matheus Marins Bernardello RA: 20.00286-6 
+
 class Carrinho():
     def __init__(self) -> None:
         self._carrinho = []
@@ -23,3 +24,6 @@ class Carrinho():
             if objetivo == produto:
                 contador += 1
         return contador
+    def __str__(self) -> str:
+        for item in self._carrinho:
+            print(item)
