@@ -2,7 +2,7 @@
 from pickle import FALSE, TRUE
 import sqlite3
 from models.product import Produto
-class ItemDAO:
+class JogoDAO:
     
     _instance = None
 
@@ -12,7 +12,7 @@ class ItemDAO:
     @classmethod
     def get_instance(cls):
         if cls._instance == None:
-            cls._instance = ItemDAO()
+            cls._instance = JogoDAO()
         return cls._instance
 
     def _connect(self):
@@ -21,32 +21,33 @@ class ItemDAO:
     def get_all(self):
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
-            SELECT * FROM Itens;
+            SELECT * FROM Jogos;
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(Produto(nome=resultado[0],descricao=resultado[1],keyword=resultado[2], valor=resultado[3],imagem= resultado[4]))
+            resultados.append(Produto(keyword=resultado[0],nome=resultado[1],descricao=resultado[2], valor=resultado[3],imagem= resultado[4]))
         self.cursor.close()
         return resultados
     
     def inserir_item(self, item):
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
-            INSERT INTO Itens (id, nome, preco)
+            INSERT INTO Jogos (id, nome,descricao, preco,imagem)
             VALUES(?,?,?);
-        """, (item.id, item.nome, item.preco))
+        """, (item.get_Keyword(), item.get_Nome(),item.get_Descricao(), item.get_Valor(),item.get_Imagem()))
         self.conn.commit()
         self.cursor.close()
-    def pegar_item(self, id):
+    def pegar_item(self, jogo):
+        id = jogo.get_Keyword()
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
-            SELECT * FROM Itens
+            SELECT * FROM Jogos
             WHERE id = '{id}';
         """)
         item = None
         resultado = self.cursor.fetchone()
         if resultado != None:
-            item = Produto(nome=resultado[0],descricao=resultado[1],keyword=resultado[2], valor=resultado[3],imagem= resultado[4])
+            item = Produto(keyword=resultado[0],nome=resultado[1],descricao=resultado[2],valor=resultado[3],imagem= resultado[4])
         self.cursor.close()
         return item
 
@@ -54,21 +55,22 @@ class ItemDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPTADE Itens SET
-                nome = '{item.nome}'
-                preco = {item.preco}
-                WHERE id = '{item.id}'
+                UPTADE Jogos SET
+                nome = '{item.get_Nome()}'
+                preco = {item.get_Valor()}
+                WHERE id = '{item.get_Keyword()}'
             """)
             self.conn.commit()
             self.cursor.close()
         except:
             return False
         return True
-    def deletar_item(self, id):
+    def deletar_item(self, jogo):
+        id = jogo.get_Keyword()
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                DELETE from Itens 
+                DELETE from Jogos 
                 WHERE id = '{id}'
             """)
             self.conn.commit()
@@ -80,11 +82,11 @@ class ItemDAO:
     def search_all_for_name(self, nome):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
-            SELECT * FROM Itens
+            SELECT * FROM Jogos
             WHERE nome LIKE '{nome}%' ;
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(Produto(nome=resultado[0],descricao=resultado[1],keyword=resultado[2], valor=resultado[3],imagem= resultado[4]))
+            resultados.append(Produto(keyword=resultado[0],nome=resultado[1],descricao=resultado[2], valor=resultado[3],imagem= resultado[4]))
         self.cursor.close()
         return resultados
