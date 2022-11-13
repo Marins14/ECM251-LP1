@@ -1,6 +1,13 @@
 # Matheus Marins Bernardello RA: 20.00286-6 
-from models.product import Produto
-from dao.jogo_dao import JogoDAO
+#from models.product import Produto
+#from dao.jogo_dao import JogoDAO
+#from dao.user_dao import User_DAO
+#from models.user import User
+
+# user_db = User_DAO()
+# aux = User("admin","admin","admin",None,None,"admin")
+# user_db.inserir_usuario(aux)
+
 
 # lógica implementada somente para preenchimento inicial do banco de dados. 
 # data = JogoDAO()

@@ -28,12 +28,12 @@ class User_DAO:
         return resultados
 
     def inserir_usuario(self, usuario):
+        print(usuario)
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
             INSERT INTO Usuarios (username, name, email, password, cpf, birthdate)
             VALUES(?,?,?,?,?,?);
-        """, (usuario.get_Username(), usuario.get_name(), usuario.get_Email(), usuario.get_Senha(), 
-usuario.get_Cpf(), usuario.get_Birthdate()))
+        """, (usuario.get_Username(), usuario.get_Name(), usuario.get_Email(), usuario.get_password(),usuario.get_cpf(), usuario.get_birthdate()))
         self.conn.commit()
         self.cursor.close()
         

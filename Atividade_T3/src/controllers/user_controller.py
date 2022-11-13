@@ -11,7 +11,7 @@ def update_user_secrets(user_db):
     for user in user_db:
         username = user.get_Username()
         email = user.get_Email()
-        user_password = user.get_Senha()
+        user_password = user.get_password()
         user_str = f'{username} = "{user_password}"'
         email_str = f'{email} = "{user_password}"'
         login_info = open(".streamlit/secrets.toml",'r')
@@ -37,12 +37,12 @@ class UserController():
         update_user_secrets(self._users)
     
     def add_user(self, username, email, password, cpf, birthdate, name):
-        try:
+        #try:
             Aux = User(username, email, password, cpf, birthdate, name)
             self.user_db.inserir_usuario(Aux)
-        except:
-            return False
-        return True
+       # except:
+            #return False
+        #return True
     
     def update_user(self, username, kind, item):
         try:
