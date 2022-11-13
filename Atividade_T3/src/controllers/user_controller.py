@@ -37,12 +37,12 @@ class UserController():
         update_user_secrets(self._users)
     
     def add_user(self, username, email, password, cpf, birthdate, name):
-        #try:
+        try:
             Aux = User(username, email, password, cpf, birthdate, name)
             self.user_db.inserir_usuario(Aux)
-       # except:
-            #return False
-        #return True
+        except:
+            return False
+        return True
     
     def update_user(self, username, kind, item):
         try:

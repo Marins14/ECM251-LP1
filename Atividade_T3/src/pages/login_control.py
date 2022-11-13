@@ -13,8 +13,7 @@ def Teste_User():
             contador += 1
 
 def Login():
-    if "users_db" not in st.session_state:
-        st.session_state["users_db"] = UserController()
+    st.session_state["users_db"] = UserController()
     if "login_true" not in st.session_state:
         st.session_state["login_true"] = False
     

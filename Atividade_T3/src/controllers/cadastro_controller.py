@@ -10,7 +10,7 @@ def Confirma_cadastro(new_user,new_useremail,new_userpassword,new_usercpf,new_us
                                                 new_username):
             st.write("Cadastro realizado com sucesso!")
         else:
-            st.write("Não foi possível realizar o cadastro, por favor, verifique seus dados.")
+             st.write("Não foi possível realizar o cadastro, por favor, verifique seus dados.")
 class Cadastro():  
     def __init__(self) -> None:
         new_username = st.text_input(label="Digite seu nome:", key="new_username")
