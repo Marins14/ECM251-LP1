@@ -54,10 +54,9 @@ usuario.get_Cpf(), usuario.get_Birthdate()))
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPTADE Usuarios SET
-                email = '{usuario.get_Email()}'
-                password = {usuario.get_Senha()}
-                WHERE id = '{usuario.get_Username()}'
+                UPDATE Usuarios
+                SET email = '{usuario.get_Email()}', password = {usuario.get_Senha()}
+                WHERE username = '{usuario.get_Username()}'
             """)
             self.conn.commit()
             self.cursor.close()

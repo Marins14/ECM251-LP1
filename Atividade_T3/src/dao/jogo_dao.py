@@ -55,9 +55,8 @@ class JogoDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPTADE Jogos SET
-                nome = '{item.get_Nome()}'
-                preco = {item.get_Valor()}
+                UPDATE Jogos 
+                SET nome = '{item.get_Nome()}', preco = {item.get_Valor()}
                 WHERE id = '{item.get_Keyword()}'
             """)
             self.conn.commit()
