@@ -8,13 +8,10 @@ from controllers.profile_controller import Profile_Ctrl
 from controllers.adm_controller import Admin_Ctrl
 
 class Home:
-    def __init__(self,produtos_db):
+    def __init__(self):
         if "carrinho" not in st.session_state:
             st.session_state["carrinho"] = Carrinho()
-        if "produtos" not in st.session_state:
-            st.session_state["produtos"] = Product_Controller()
-        for produto in produtos_db:
-            st.session_state["produtos"].adicionar_a_lista(produto)
+        st.session_state["jogos"] = Product_Controller()
         
         store,cart,profile,administration = st.tabs(["Loja","Carrinho","Perfil","Novos Produtos"])    
         with store:

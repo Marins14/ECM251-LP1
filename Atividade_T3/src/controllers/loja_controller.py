@@ -1,6 +1,5 @@
 # Matheus Marins Bernardello RA: 20.00286-6
 import streamlit as st
-# COM O SQL ESPERO QUE O BUg DO STREAMLIT PARE
 class Store_Ctrl:
     def __init__(self) -> None:
         st.subheader("Destaques")
@@ -12,14 +11,14 @@ class Store_Ctrl:
         
         if "colunas_aux" not in st.session_state:
             st.session_state["colunas_aux"] = 0
-        for coluna in colunas:
-            with coluna:
-                if st.session_state["colunas_aux"] < st.session_state["produtos"].get_Quantidade_Produtos():
-                    st.image(st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Imagem(), st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Descricao())
-                    st.write("R$ "+ str(st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Valor()))
-                    if st.button("Adicionar ao carrinho", key = st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Keyword()):
-                        st.session_state["carrinho"].adicionar(st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]))
-                        st.write("Produto adicionado ao carrinho!")
-            st.session_state["colunas_aux"] += 1                    
-            if st.session_state["colunas_aux"] >= st.session_state["produtos"].get_Quantidade_Produtos():
-                st.session_state["colunas_aux"] = st.session_state["produtos"].get_Quantidade_Produtos()
+
+# Variavel criada para evitar possiveis bugs no streamlit 
+        total_jogos = 0
+        total_jogos = st.session_state["jogos"].get_Quantidade_Jogos()
+        for st.session_state["colunas_aux"] in range(total_jogos):
+            with colunas[st.session_state["colunas_aux"]]:
+                st.image(st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]).get_Imagem(), st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]).get_Descricao())
+                st.write("R$ "+ str(st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]).get_Valor()))
+                if st.button("Adicionar ao carrinho", key = st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]).get_Keyword()+str(st.session_state["colunas_aux"])):
+                    st.session_state["carrinho"].adicionar(st.session_state["jogos"].get_Produto(st.session_state["colunas_aux"]))
+                    st.write("Produto adicionado ao carrinho!😎")

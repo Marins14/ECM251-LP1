@@ -9,7 +9,7 @@ def update_user_db(user_db):
     login_info.close()
     for user in user_db:
         username = user.get_Username()
-        user_password = user.get_Senha()
+        user_password = user.get_password()
         user_str = f'{username} = "{user_password}"'
         login_info = open(".streamlit/secrets.toml",'r')
         login_info_read = login_info.read()

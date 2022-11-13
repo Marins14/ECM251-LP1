@@ -21,7 +21,7 @@ class Produto():
         return self._valor
     def get_Imagem(self):
         return self._imagem
-    # Faz com que o item print de forma especifica
+    # Faz com que print de forma especifica
     def __str__(self) -> str:
         return self._nome + " - R$ "+ str(self._valor)
     # Compara itens
