@@ -3,6 +3,7 @@ from cgi import print_exception
 from unicodedata import name
 import base64
 
+# Função que irá completar o Banco de dados com os jogos já existentes.
 # def conv_img(end_img):
 #     with open(end_img, "rb") as image2string:
 #         converted_string = base64.b64encode(image2string.read())
