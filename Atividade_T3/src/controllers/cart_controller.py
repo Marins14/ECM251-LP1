@@ -1,5 +1,5 @@
 # Matheus Marins Bernardello RA: 20.00286-6 
-
+from models.product import Produto
 class Carrinho():
     def __init__(self) -> None:
         self._carrinho = []
@@ -29,3 +29,10 @@ class Carrinho():
             print(item)
     def __str__(self) -> str:
         return f'Teoricamente é isso:{self.printa_geral()}'
+    # def retorna_valor_lista(self,jogo):
+    #     jogo = []
+    #     for jogo in self._carrinho:
+    #         jogo.append(f'Nome: {self.get_Nome()}, Preço {self.get_Valor()}')
+    #     return jogo
+        
+    
