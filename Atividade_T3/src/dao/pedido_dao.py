@@ -24,7 +24,7 @@ class PedidoDAO:
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(Pedido(numero_pedido = resultado[0], id_cliente=resultado[1], carrinho=resultado[2],data_hora=resultado[3]))
+            resultados.append(Pedido(numero_pedido = resultado[0], id_cliente=resultado[1], produtos=resultado[2],valor_total=resultado[3],data_hora=resultado[4]))
         self.cursor.close()
         return resultados
     
@@ -34,15 +34,17 @@ class PedidoDAO:
         self.cursor.execute(f"""
             INSERT INTO Pedidos (
                 id, 
-                id_cliente, 
-                carrinho, 
+                id_cliente,
+                produtos, 
+                valor_total, 
                 data_hora
             )
             VALUES(
-                '{pedido.numero_pedido}',
-                '{pedido.id_cliente}',
-                '{pedido.carrinho}',
-                '{pedido.data_hora}'
+                "{pedido.numero_pedido}",
+                "{pedido.id_cliente}",
+                "{pedido.produtos}",
+                "{pedido.valor_total}",
+                "{pedido.data_hora}"
                 
             );
         """)
@@ -52,11 +54,11 @@ class PedidoDAO:
     def pegar_pedido(self, numero_pedido):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
-            SELECT * FROM Pedidos WHERE id = '{numero_pedido}';
+            SELECT * FROM Pedidos WHERE id = "{numero_pedido}";
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(Pedido(numero_pedido = resultado[0], id_cliente=resultado[1], carrinho=resultado[2],data_hora=resultado[3]))
+            resultados.append(Pedido(numero_pedido = resultado[0], id_cliente=resultado[1], produtos=resultado[2],valor_total=resultado[3],data_hora=resultado[4]))
         self.cursor.close()
         return resultados
     
@@ -65,7 +67,7 @@ class PedidoDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPDATE Pedidos SET carrinho = '{pedido.carrinho}',data_hora = '{pedido.data_hora}'
+                UPDATE Pedidos SET carrinho = "{pedido.produtos}",valor_total = "{pedido.valor_total}",data_hora = "{pedido.data_hora}"
                 WHERE id = {pedido.numero_pedido}
             """)
             self.conn.commit()
@@ -79,7 +81,7 @@ class PedidoDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                DELETE FROM Pedidos WHERE id = '{pedido.numero_pedido}'
+                DELETE FROM Pedidos WHERE id = "{pedido.numero_pedido}"
             """)
             self.conn.commit()
             self.cursor.close()

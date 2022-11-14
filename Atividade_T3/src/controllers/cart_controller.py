@@ -25,14 +25,11 @@ class Carrinho():
                 contador += 1
         return contador
     def printa_geral(self):
+        resultado = []
         for item in self._carrinho:
-            print(item)
+            resultado.append(item.get_Nome())
+        return resultado
     def __str__(self) -> str:
-        return f'Teoricamente é isso:{self.printa_geral()}'
-    # def retorna_valor_lista(self,jogo):
-    #     jogo = []
-    #     for jogo in self._carrinho:
-    #         jogo.append(f'Nome: {self.get_Nome()}, Preço {self.get_Valor()}')
-    #     return jogo
+        return f'{self.printa_geral()}'
         
     
