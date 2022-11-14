@@ -5,7 +5,12 @@ class Carrinho():
         self._carrinho = []
     # Demais métodos da classe
     def adicionar(self,produto):
-        self._carrinho.append(produto)    
+        for jogo in self._carrinho:
+            if produto.get_Nome() == jogo.get_Nome():
+                return False
+        self._carrinho.append(produto)
+        return True
+            
     def exibir_Produtos(self,produto):
         return self._carrinho[produto]
     def get_Valor_Total(self):

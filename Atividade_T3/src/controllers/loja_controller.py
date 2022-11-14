@@ -18,5 +18,7 @@ class Store_Ctrl:
                 st.image(st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]).get_Imagem(), st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]).get_Descricao())
                 st.write("R$ "+ str(st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]).get_Valor()))
                 if st.button("Adicionar ao carrinho", key = st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]).get_Keyword()+str(st.session_state["colunas_aux"])):
-                    st.session_state["carrinho"].adicionar(st.session_state["jogos"].get_Jogo(st.session_state["colunas_aux"]))
-                    st.write("Produto adicionado ao carrinho!😎")
+                    if st.session_state["carrinho"].adicionar(st.session_state["jogos"].    get_Jogo(st.session_state["colunas_aux"])):
+                        st.write("Produto adicionado ao carrinho!😎")
+                    else:
+                        st.write("Jogo já está no carrinho!")

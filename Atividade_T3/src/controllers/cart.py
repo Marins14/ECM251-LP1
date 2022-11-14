@@ -27,3 +27,5 @@ class Cart_Ctrl:
             if st.button("Pagamento",key = ("pagamento")):
                 st.session_state["pedido"].inserir_pedido(st.session_state["userlogged"],st.session_state["carrinho"],datetime.today().strftime('%d/%m/%Y'))
                 st.write("Calma meu jovem, já estamos trabalhando para você!")
+            else:
+                st.write("Infelizmente não foi possivel realizar seu pedido 😢")

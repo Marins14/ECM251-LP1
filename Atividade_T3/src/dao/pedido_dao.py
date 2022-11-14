@@ -29,7 +29,6 @@ class PedidoDAO:
         return resultados
     
     def inserir_pedido(self, pedido):
-        print(pedido)
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
             INSERT INTO Pedidos (
