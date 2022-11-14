@@ -45,7 +45,7 @@ class User_DAO:
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
             SELECT * FROM Usuarios
-            WHERE username = '{username}';
+            WHERE username = "{username}";
         """)
         item = None
         resultado = self.cursor.fetchone()
@@ -59,8 +59,8 @@ class User_DAO:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
                 UPDATE Usuarios
-                SET email = '{usuario.get_Email()}', password = {usuario.get_Senha()}
-                WHERE username = '{usuario.get_Username()}'
+                SET email = "{usuario.get_Email()}", password = "{usuario.get_password()}"
+                WHERE username = "{usuario.get_Username()}"
             """)
             self.conn.commit()
             self.cursor.close()
@@ -73,7 +73,7 @@ class User_DAO:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
                 DELETE from Usuarios 
-                WHERE id = '{username}'
+                WHERE id = "{username}"
             """)
             self.conn.commit()
             self.cursor.close()
